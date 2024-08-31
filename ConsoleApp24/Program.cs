@@ -12,7 +12,7 @@ namespace ConsoleApp24
 
             int maxRandomNumber = 50;
             int minRandomNumber = 1;
-            int maxElement = 0;
+            int maxElement = int.MinValue;
             int insertElement = 0;
 
             Console.WriteLine("Первоначальный массив");
@@ -24,8 +24,10 @@ namespace ConsoleApp24
                     data[i, j] = random.Next(minRandomNumber,maxRandomNumber);
                     Console.Write(data [i, j] + " ");
                 }
+
                 Console.WriteLine();
             }
+
             Console.WriteLine();
             Console.WriteLine("Наибольший элемент ");
 
@@ -34,28 +36,30 @@ namespace ConsoleApp24
                 for(int j = 0;j < data.GetLength(1); j++)
                 {
                    if (maxElement < data[i, j])
-
                    {
                         maxElement = data[i, j];
                    }
                 }
             }
+
             Console.WriteLine(maxElement);
             Console.WriteLine();
             Console.WriteLine("Новый массив");
 
            for(int i = 0;i < data.GetLength(0); i++)
-            {
+           {
                 for (int j = 0; j < data.GetLength(1); j++) 
                 {
                     if(maxElement == data[i, j])
                     {
                         data[i, j] = insertElement;
                     }
+
                     Console.Write(data[i, j] + " ");
                 }
+
                 Console.WriteLine();
-            }
+           }
         }
     }
 }
